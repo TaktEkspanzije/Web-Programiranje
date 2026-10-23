@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treći zadatak</title>
+    <style>
+
+        * {
+            box-sizing: border-box;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif, cursive;
+        }
+
+        body {
+            margin: 0px;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 65% 35%;
+            column-gap: 5%;
+            grid-template-rows: auto 1fr auto;
+        }
+
+        header, main, aside, footer {
+            border: 2px solid #295c99;
+        }
+
+        header {
+            min-height: 10vh;
+            grid-column: 1 / -1;
+            background-color: #dce6f1de;
+        }
+
+        main {
+            font-size: 18px;
+            background-color: #f3e0d1c7;
+        }
+
+        aside {
+            font-size: 18px;
+            background-color: #e2eed9d0;
+        }
+
+        footer {
+            min-height: 10vh;
+            grid-column: 1 / -1;
+            background-color: #dce6f1ce;
+        }
+
+        .center {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .okomito li {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="center"><b>Naslov</b></header>
+
+    <main class="center">
+        <section>
+            <article>
+                <h2>Naslov članka</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae rem fugit laborum reprehenderit delectus officiis mollitia, velit ipsa accusantium, perferendis illo! Commodi, reprehenderit tempora impedit sapiente perspiciatis perferendis necessitatibus labore!</p>
+            </article>
+            <article>
+                <h2>Naslov članka</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio maiores, reprehenderit deleniti repellendus omnis cumque facilis ab quibusdam placeat veniam quidem molestiae mollitia, accusantium quisquam! Nihil amet quia exercitationem fugiat.</p>
+            </article>
+        </section>
+    </main>
+
+    <aside class="center"><b>Izbornik</b>
+        <div>
+        <ul class="okomito">
+            <li><a href="treci.html" target="_blank">Članak 1</a></li>
+            <li><a href="treci.html" target="_blank">Članak 2</a></li>
+            <li><a href="treci.html" target="_blank">Članak 3</a></li>
+            <li><a href="treci.html" target="_blank">Članak 4</a></li>
+            <li><a href="treci.html" target="_blank">Članak 5</a></li>
+        </ul>
+    </div>
+    </aside>
+
+    <footer class="center"><b>Podnožje</b></footer>
+
+</body>
+</html>
