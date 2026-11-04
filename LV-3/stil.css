@@ -1,0 +1,35 @@
+.table {
+    border: 2px solid black;
+}
+
+.table thead th {
+    background-color: black;
+    text-align: center;
+    color: white;
+}
+
+.table tbody tr:nth-child(even) td {
+    background-color: red;
+}
+
+.table tbody tr:nth-child(odd) td {
+    background-color: white;
+}
+
+main p:first-of-type {
+    font-size: 20px;
+    color: red;
+}
+
+
+
+h3 {
+    text-align: center;
+}
+
+
+@media (max-width: 991.98px) {
+    .slike>div {
+        margin-bottom: 10px;
+    }
+}
