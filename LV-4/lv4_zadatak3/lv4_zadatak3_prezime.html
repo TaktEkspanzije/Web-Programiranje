@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prijava na izborne kolegije</title>
+
+    <link rel="stylesheet" href="stil.css">
+    <script src="validacija.js" defer></script>
+</head>
+<body>
+    <h1>Prijava na izborne kolegije</h1>
+    <form id="prijava" action="">
+        <div class="red">
+            <label for="ime">Ime i prezime:</label>
+            <div class="kontrola">
+                <input type="text" id="ime" placeholder="npr. Ana Anić">
+                <button type="button" id="pozdrav">Pozdrav</button>
+            </div>
+        </div>
+        <div class="red">
+            <label for="email">E-mail adresa:</label>
+            <input type="text" id="email" placeholder="npr. ana.anic@ferit.hr">
+        </div>
+        <div class="red">
+            <label for="brojKolegija">Broj kolegija:</label>
+            <div class="kontrola">
+                <input type="number" id="brojKolegija" min="1" max="8" required>
+                
+            </div>
+        </div>
+        <div class="red sirok">
+            <label for="popis">Odabrani kolegiji:</label>
+            <textarea id="popis" cols="50" rows="10" readonly placeholder="Ovdje će se ispisati kolegiji."></textarea>
+        </div>
+        <div class="red">
+            <div class="kontrola">
+                <button type="button" id="kolegiji">Kolegiji</button>
+                <button type="button" id="obrisi">Obriši</button>
+            </div>
+        </div>
+        <p id="rezultat">Ovdje će se ispisati poruke.</p>
+        <p class="sredina"><button type="button" id="prijavi">Prijavi se</button></p>
+    </form>
+</body>
+</html>
