@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadatak 2 - JSON</title>
+</head>
+<body>
+
+    <h1>Dohvaćanje JSON datoteke</h1>
+
+    <pre id="ispis"></pre>
+
+    <button onclick="obrisiPodatke()">Obriši spremljene podatke</button>
+
+    <script>
+
+        async function dohvatiJSON() {
+
+            try {
+
+                // Provjera postoji li zapis u localStorage
+                const spremljeno = localStorage.getItem("osobe");
+
+                if (spremljeno !== null) {
+
+                    const osobe = JSON.parse(spremljeno);
+
+                    document.getElementById("ispis").textContent =
+                        JSON.stringify(osobe, null, 4);
+
+                    console.log("Podaci iz localStorage:", osobe);
+
+                    return;
+                }
+
+                // Dohvaćanje JSON datoteke
+                const odgovor = await fetch("data.json");
+
+                if (!odgovor.ok) {
+                    throw new Error("HTTP " + odgovor.status);
+                }
+
+                const osobe = await odgovor.json();
+
+                // Promjena drugog objekta u nizu
+                osobe[1].ime = "Matej";
+                osobe[1].prezime = "Srnka";
+                osobe[1].godinaRodenja = 2004;
+                osobe[1].godinaStudija = "2026";
+
+                // Ispis u konzolu
+                console.log("Izmijenjeni podaci:", structuredClone(osobe));
+
+                // Spremanje u localStorage
+                localStorage.setItem("osobe", JSON.stringify(osobe));
+
+                // Ponovno čitanje iz localStorage
+                const spremljeniPodaci =
+                    JSON.parse(localStorage.getItem("osobe"));
+
+                console.log("Podaci iz localStorage:", spremljeniPodaci);
+
+                // Prikaz na stranici
+                document.getElementById("ispis").textContent =
+                    JSON.stringify(spremljeniPodaci, null, 4);
+
+            } catch (greska) {
+
+                console.error("Učitavanje nije uspjelo:", greska);
+
+            }
+
+        }
+
+        // Brisanje podataka
+        function obrisiPodatke() {
+
+            localStorage.removeItem("osobe");
+
+            document.getElementById("ispis").textContent =
+                "Podaci su obrisani.";
+
+            console.log("Podaci su obrisani iz localStorage.");
+
+        }
+
+        dohvatiJSON();
+
+    </script>
+
+</body>
+</html>
