@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadatak 2 - TXT</title>
+</head>
+<body>
+
+    <h1>Dohvaćanje tekstualne datoteke</h1>
+
+    <pre id="tekst"></pre>
+
+    <script>
+
+        async function dohvatiTekst() {
+
+            try {
+
+                const odgovor = await fetch("himna.txt");
+
+                if (!odgovor.ok) {
+                    throw new Error("HTTP " + odgovor.status);
+                }
+
+                const tekst = await odgovor.text();
+
+                document.getElementById("tekst").textContent = tekst;
+
+            } catch (greska) {
+
+                console.error("Greška:", greska);
+
+            }
+
+        }
+
+        dohvatiTekst();
+
+    </script>
+
+</body>
+</html>
